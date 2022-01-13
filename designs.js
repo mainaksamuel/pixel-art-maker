@@ -36,7 +36,7 @@ function makeGrid() {
   // Clear the table before drawing a new grid
   table.innerHTML = '';
 
-  // draw a `height` by `width` grid
+  // Draw a `height` by `width` grid while adding `click` event-listener to the cells
   for (let w = 0; w < height; w++) {
     let row = table.insertRow();
     for (let h = 0; h < width; h++) {
