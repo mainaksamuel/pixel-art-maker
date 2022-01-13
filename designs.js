@@ -4,10 +4,8 @@ let color = colorPicker.value;
 
 colorPicker.addEventListener('change', () => {
   color = colorPicker.value;
-  console.log(`Color: ${color}`);
 });
 
-// Select size input
 
 // When size is submitted by the user, call makeGrid()
 const form = document.getElementById('sizePicker');
@@ -16,9 +14,11 @@ form.addEventListener('submit', evt => {
   makeGrid();
 });
 
+
 function colorBox(target) {
   target.style.cssText = `background-color: ${color}`;
 }
+
 
 function makeGrid() {
   const height = Number(document.getElementById('inputHeight').value);
@@ -27,6 +27,7 @@ function makeGrid() {
   const table = document.getElementById('pixelCanvas');
   table.addEventListener('click', evt => colorBox(evt.target));
   table.innerHTML = '';
+
   for (let w = 0; w < height; w++) {
     let row = document.createElement('tr');
     for (let h = 0; h < width; h++) {
