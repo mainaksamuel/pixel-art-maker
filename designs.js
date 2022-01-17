@@ -17,11 +17,32 @@ form.addEventListener('submit', evt => {
 
 
 /*
- * Set the background color of a cell to the chosen color
+ * Set the background color of a cell to the chosen color.
+ * Resets the background color to `white` if cell is clicked with same
+ * highlighted color.
+ *
  * params: target => HTMLElement
  */
 function colorCell(target) {
-  target.style.cssText = `background-color: ${color}`;
+  if (target.style.backgroundColor === hexToRgb(color)) {
+    target.style.backgroundColor = `#ffffff`;
+  } else {
+    target.style.backgroundColor = color;
+  }
+}
+
+
+/*
+ * Convert `hex` colors to `rgb` format.
+ *
+ * params: hexColor => string representation of hex color format.
+ */
+function hexToRgb(hexColor) {
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexColor);
+
+  return result ?
+    `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`
+    : null;
 }
 
 
