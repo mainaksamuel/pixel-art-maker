@@ -18,14 +18,14 @@ form.addEventListener('submit', evt => {
 
 /*
  * Set the background color of a cell to the chosen color.
- * Resets the background color to `white` if cell is clicked with same
- * highlighted color.
+ * Resets the cell's background color to '' when the cell is clicked, if
+ *    the background-color is the same as the color on the color picker
  *
  * params: target => HTMLElement
  */
 function colorCell(target) {
   if (target.style.backgroundColor === hexToRgb(color)) {
-    target.style.backgroundColor = `#ffffff`;
+    target.style.backgroundColor = "";
   } else {
     target.style.backgroundColor = color;
   }
